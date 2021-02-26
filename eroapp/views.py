@@ -41,9 +41,24 @@ def lokacija_create(request):
     context = {'form': form}
     return render(request, 'lokacija/lokacija_create.html', context)
 
-def lokacija_update(request):
-    
+def lokacija_update(request, pk):
+    lokacija = Lokacija.objects.get(id=pk)
+    form = LokacijaForm(instance=lokacija)
+    if request.method == "POST":
+        form = LokacijaForm(request.POST, instance=lokacija)
+        if form.is_valid():
+            form.save()
+            return redirect("/lokacije")
+    context = {
+        'form': form,
+        'lokacija': lokacija
+        }
+    return render(request, 'lokacija/lokacija_update.html', context)
 
+def lokacija_delete(request, pk):
+    lokacija = Lokacija.objects.get(id=pk)
+    lokacija.delete()
+    return redirect("/lokacije")
 #------------------------------------------------------------------------------------------------
 
 
