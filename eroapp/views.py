@@ -61,9 +61,44 @@ def lokacija_delete(request, pk):
     return redirect("/lokacije")
 #------------------------------------------------------------------------------------------------
 
+def zgrada_list(request):
+    zgrade = Zgrada.objects.all()
+    context = {'zgrade': zgrade}
+    return render(request, 'zgrada/zgrada_list.html', context)
 
+def zgrada_detail(request, pk):
+    zgrada = Zgrada.objects.get(id=pk)
+    context = {'zgrada': zgrada}
+    return render(request, 'zgrada/zgrada_detail.html', context)
 
+def zgrada_create(request):
+    form = ZgradaForm()
+    if request.method == "POST":
+        form = ZgradaForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("/zgrade")
+    context = {'form': form}
+    return render(request, 'zgrada/zgrada_create.html', context)
 
+def zgrada_update(request, pk):
+    zgrada = Zgrada.objects.get(id=pk)
+    form = ZgradaForm(instance=zgrada)
+    if request.method == "POST":
+        form = ZgradaForm(request.POST, instance=zgrada)
+        if form.is_valid():
+            form.save()
+            return redirect("/zgrade")
+    context = {
+        'form': form,
+        'zgrada': zgrada
+        }
+    return render(request, 'zgrada/zgrada_update.html', context)
 
+def zgrada_delete(request, pk):
+    zgrada = Zgrada.objects.get(id=pk)
+    zgrada.delete()
+    return redirect("/zgrade")
 
+#----------------------------------------------------------------------------------------------
 

@@ -11,3 +11,12 @@ class LokacijaForm(forms.ModelForm):
     class Meta:
         model = Lokacija
         fields = '__all__'
+
+#-------------------------------------------------------------------------------------------------------
+
+class ZgradaForm(forms.ModelForm):
+    class Meta:
+        model = Zgrada
+        fields = '__all__'
+
+#---------------------------------------------------------------------------------------
