@@ -1,8 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
 from .models import *
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
+
+from .forms import *
 
 # Create your views here.
 
@@ -28,6 +30,19 @@ def lokacija_detail(request, pk):
     lokacija = Lokacija.objects.get(id=pk)
     context = {'lokacija': lokacija}
     return render(request, 'lokacija/lokacija_detail.html', context)
+
+def lokacija_create(request):
+    form = LokacijaForm()
+    if request.method == "POST":
+        form = LokacijaForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("/lokacije")
+    context = {'form': form}
+    return render(request, 'lokacija/lokacija_create.html', context)
+
+def lokacija_update(request):
+    
 
 #------------------------------------------------------------------------------------------------
 

@@ -6,7 +6,8 @@ from .views import *
 urlpatterns = [
     path('', views.home),
     path('lokacije/', views.lokacija_list),
-    path('lokacije/<pk>/', views.lokacija_detail),
+    path('lokacije/create/', views.lokacija_create),
+    path('lokacije/<int:pk>/', views.lokacija_detail),
 
     #path('lokacije/', LokacijaListView.as_view(), name='lokacija_list_view'),
 ]
