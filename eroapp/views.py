@@ -102,3 +102,44 @@ def zgrada_delete(request, pk):
 
 #----------------------------------------------------------------------------------------------
 
+def prostorija_list(request):
+    prostorije = Prostorija.objects.all()
+    context = {'prostorije': prostorije}
+    return render(request, 'prostorija/prostorija_list.html', context)
+
+def prostorija_detail(request, pk):
+    prostorija = Prostorija.objects.get(id=pk)
+    context = {'prostorija': prostorija}
+    return render(request, 'prostorija/prostorija_detail.html', context)
+
+def prostorija_create(request):
+    form = ProstorijaForm()
+    if request.method == "POST":
+        form = ProstorijaForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("/prostorije")
+    context = {'form': form}
+    return render(request, 'prostorija/prostorija_create.html', context)
+
+def prostorija_update(request, pk):
+    prostorija = Prostorija.objects.get(id=pk)
+    form = ProstorijaForm(instance=prostorija)
+    if request.method == "POST":
+        form = ProstorijaForm(request.POST, instance=prostorija)
+        if form.is_valid():
+            form.save()
+            return redirect("/prostorije")
+    context = {
+        'form': form,
+        'prostorija': prostorija
+        }
+    return render(request, 'prostorija/prostorija_update.html', context)
+
+def prostorija_delete(request, pk):
+    prostorija = Prostorija.objects.get(id=pk)
+    prostorija.delete()
+    return redirect("/prostorije")
+
+#---------------------------------------------------------------------------------------------
+

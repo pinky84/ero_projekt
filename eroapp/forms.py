@@ -20,3 +20,11 @@ class ZgradaForm(forms.ModelForm):
         fields = '__all__'
 
 #---------------------------------------------------------------------------------------
+
+class ProstorijaForm(forms.ModelForm):
+    class Meta:
+        model = Prostorija
+        fields = '__all__'
+
+#-----------------------------------------------------------------------------------------
+

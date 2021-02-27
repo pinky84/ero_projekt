@@ -16,6 +16,12 @@ urlpatterns = [
     path('zgrade/create/', views.zgrada_create),
     path('zgrade/<int:pk>/update/', views.zgrada_update),
     path('zgrade/<int:pk>/delete/', views.zgrada_delete),
+#------------------------------------------------------------------------------
+    path('prostorije/', views.prostorija_list),
+    path('prostorije/<int:pk>/', views.prostorija_detail),
+    path('prostorije/<int:pk>/update/', views.prostorija_update),
+    path('prostorije/<int:pk>/delete/', views.prostorija_delete),
+    path('prostorije/create/', views.prostorija_create),
 
     #path('lokacije/', LokacijaListView.as_view(), name='lokacija_list_view'),
 ]

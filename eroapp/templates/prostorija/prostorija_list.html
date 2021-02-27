@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<hr>
+<p>
+  <table>
+    <tr>
+      <td>PROSTORIJE</td>
+      <td><a href="/prostorije/create/">Dodaj Prostoriju</a></td>
+    </tr>
+  </table> 
+</p>
+<hr>
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <!--- <th scope="col">#</th> -->
+        <th scope="col">Šifra prostorije</th>
+        <th scope="col">Kat</th>
+        <th scope="col">Broj prostorija</th>
+        <th scope="col">ID zgrade</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        
+      </tr>
+
+      {% for prostorija in prostorije %}
+        <tr>
+          <td><a href="/prostorije/{{ prostorija.pk }}/">{{ prostorija.sifra_prostorije }}</a></td>
+          <td>{{ prostorija.kat }}</td>
+          <td>{{ prostorija.broj_prostorije }}</td>
+          <td>{{ prostorija.id_zgrada }}</td>
+          <td><a href="/prostorije/{{ prostorija.pk }}/update/">Update</a></td>
+          <td><a href="/prostorije/{{ prostorija.pk }}/delete/">Delete</a></td>
+        </tr>
+      {% endfor %}
+
+      
+  </table>
+
+  {% endblock content %}
