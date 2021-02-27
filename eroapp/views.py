@@ -183,3 +183,47 @@ def korisnik_delete(request, pk):
     return redirect("/korisnici")
 
 #------------------------------------------------------------------------------------------
+
+def uredaj_list(request):
+    uredaji = Uredaj.objects.all()
+    context = {'uredaji': uredaji}
+    return render(request, 'uredaj/uredaj_list.html', context)
+
+def uredaj_detail(request, pk):
+    uredaj = Uredaj.objects.get(id=pk)
+    context = {'uredaj': uredaj}
+    return render(request, 'uredaj/uredaj_detail.html', context)
+
+def uredaj_create(request):
+    form = UredajForm()
+    if request.method == "POST":
+        form = UredajForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("/uredaji")
+    context = {'form': form}
+    return render(request, 'uredaj/uredaj_create.html', context)
+
+def uredaj_update(request, pk):
+    uredaj = Uredaj.objects.get(id=pk)
+    form = UredajForm(instance=uredaj)
+    if request.method == "POST":
+        form = UredajForm(request.POST, instance=uredaj)
+        if form.is_valid():
+            form.save()
+            return redirect("/uredaji")
+    context = {
+        'form': form,
+        'korisnik': uredaj
+        }
+    return render(request, 'uredaj/uredaj_update.html', context)
+
+def uredaj_delete(request, pk):
+    uredaj = Uredaj.objects.get(id=pk)
+    uredaj.delete()
+    return redirect("/uredaji")
+
+#-----------------------------------------------------------------------------------------------
+
+
+

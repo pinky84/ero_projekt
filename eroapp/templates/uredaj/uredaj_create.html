@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <p></p>
+    <hr>
+    <h1>Kreirajte novi uređaj</h1>
+    <p></p>
+    <hr>
+    <p></p>
+    <form method="POST"> 
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+    
+
+ {% endblock content %}

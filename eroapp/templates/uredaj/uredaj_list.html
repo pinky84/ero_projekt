@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<hr>
+<p>
+  <table>
+    <tr>
+      <td>UREĐAJI</td>
+      <td><a href="/uredaji/create/">Dodaj Uređaj</a></td>
+    </tr>
+  </table> 
+</p>
+<hr>
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <!--- <th scope="col">#</th> -->
+        <th scope="col">Barcode</th>
+        <th scope="col">Vrsta uređaja</th>
+        <th scope="col">Proizvođač</th>
+        <th scope="col">Model</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        
+      </tr>
+
+      {% for uredaj in uredaji %}
+        <tr>
+          <td><a href="/uredaji/{{ uredaj.pk }}/">{{ uredaj.barcode }}</a></td>
+          <td>{{ uredaj.vrsta_uredaja }}</td>
+          <td>{{ uredaj.proizvodac }}</td>
+          <td>{{ uredaj.model }}</td>
+          <td><a href="/uredaji/{{ uredaj.pk }}/update/">Update</a></td>
+          <td><a href="/uredaji/{{ uredaj.pk }}/delete/">Delete</a></td>
+        </tr>
+      {% endfor %}
+
+      
+  </table>
+
+  {% endblock content %}

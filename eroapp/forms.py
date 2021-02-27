@@ -34,3 +34,10 @@ class KorisnikForm(forms.ModelForm):
         fields = '__all__'
 
 #----------------------------------------------------------------------------------------
+
+class UredajForm(forms.ModelForm):
+    class Meta:
+        model = Uredaj
+        fields = '__all__'
+
+#--------------------------------------------------------------------------------

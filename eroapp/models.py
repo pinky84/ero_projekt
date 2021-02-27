@@ -48,7 +48,8 @@ class Korisnik(models.Model):
     prezime         = models.CharField(max_length=50, blank=False)
 
     def __str__(self):
-        return self.id_korisnika
+        #return self.id_korisnika
+        return '{} {}'.format(self.prezime, self.ime)
 
     class Meta:
         verbose_name_plural = 'Korisnici'

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <p></p>
+    <p><strong>Barcode: {{ uredaj.barcode }}</strong></p>
+    <p><strong>Serijski broj: {{ uredaj.serijski_broj }}</strong></p>
+    <p><strong>Vrsta uređaja: {{ uredaj.vrsta_uredaja }}</strong></p>
+    <p><strong>Proizvođač: {{ uredaj.proizvodac }}</strong></p>
+    <p><strong>Model: {{ uredaj.model }}</strong></p>
+    <p><strong>MAC adresa: {{ uredaj.mac_adresa }}</strong></p>
+    <p><strong>Opis: {{ uredaj.opis }}</strong></p>
+    <p><strong>Napomena: {{ uredaj.napomena }}</strong></p>
+    <p><strong>Datum nabave: {{ uredaj.datum_nabave }}</strong></p>
+    <p><strong>Datum isteka garancije: {{ uredaj.datum_isteka_garancije }}</strong></p>
+    <p><strong>ID prostorije: {{ uredaj.id_prostorija }}</strong></p>
+    <p><strong>Korisnik: {{ uredaj.korisnik_id }}</strong></p>
+
+ {% endblock content %}
