@@ -143,3 +143,43 @@ def prostorija_delete(request, pk):
 
 #---------------------------------------------------------------------------------------------
 
+def korisnik_list(request):
+    korisnici = Korisnik.objects.all()
+    context = {'korisnici': korisnici}
+    return render(request, 'korisnik/korisnik_list.html', context)
+
+def korisnik_detail(request, pk):
+    korisnik = Korisnik.objects.get(id=pk)
+    context = {'korisnik': korisnik}
+    return render(request, 'korisnik/korisnik_detail.html', context)
+
+def korisnik_create(request):
+    form = KorisnikForm()
+    if request.method == "POST":
+        form = KorisnikForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("/korisnici")
+    context = {'form': form}
+    return render(request, 'korisnik/korisnik_create.html', context)
+
+def korisnik_update(request, pk):
+    korisnik = Korisnik.objects.get(id=pk)
+    form = KorisnikForm(instance=korisnik)
+    if request.method == "POST":
+        form = KorisnikForm(request.POST, instance=korisnik)
+        if form.is_valid():
+            form.save()
+            return redirect("/korisnici")
+    context = {
+        'form': form,
+        'korisnik': korisnik
+        }
+    return render(request, 'korisnik/korisnik_update.html', context)
+
+def korisnik_delete(request, pk):
+    korisnik = Korisnik.objects.get(id=pk)
+    korisnik.delete()
+    return redirect("/korisnici")
+
+#------------------------------------------------------------------------------------------

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<hr>
+<p>
+  <table>
+    <tr>
+      <td>KORISNICI</td>
+      <td><a href="/korisnici/create/">Dodaj Korisnika</a></td>
+    </tr>
+  </table> 
+</p>
+<hr>
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <!--- <th scope="col">#</th> -->
+        <th scope="col">ID korisnika</th>
+        <th scope="col">Ime </th>
+        <th scope="col">Prezime</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        
+      </tr>
+
+      {% for korisnik in korisnici %}
+        <tr>
+          <td><a href="/korisnici/{{ korisnik.pk }}/">{{ korisnik.id_korisnika }}</a></td>
+          <td>{{ korisnik.ime }}</td>
+          <td>{{ korisnik.prezime }}</td>
+          <td><a href="/korisnici/{{ korisnik.pk }}/update/">Update</a></td>
+          <td><a href="/korisnici/{{ korisnik.pk }}/delete/">Delete</a></td>
+        </tr>
+      {% endfor %}
+
+      
+  </table>
+
+  {% endblock content %}

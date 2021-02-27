@@ -22,6 +22,12 @@ urlpatterns = [
     path('prostorije/<int:pk>/update/', views.prostorija_update),
     path('prostorije/<int:pk>/delete/', views.prostorija_delete),
     path('prostorije/create/', views.prostorija_create),
+#------------------------------------------------------------------------------
+    path('korisnici/', views.korisnik_list),
+    path('korisnici/<int:pk>/', views.korisnik_detail),
+    path('korisnici/create/', views.korisnik_create),
+    path('korisnici/<int:pk>/update/', views.korisnik_update),
+    path('korisnici/<int:pk>/delete/', views.korisnik_delete),
 
     #path('lokacije/', LokacijaListView.as_view(), name='lokacija_list_view'),
 ]

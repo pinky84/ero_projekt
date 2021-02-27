@@ -28,3 +28,9 @@ class ProstorijaForm(forms.ModelForm):
 
 #-----------------------------------------------------------------------------------------
 
+class KorisnikForm(forms.ModelForm):
+    class Meta:
+        model = Korisnik
+        fields = '__all__'
+
+#----------------------------------------------------------------------------------------
