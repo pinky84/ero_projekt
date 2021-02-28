@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<hr>
+<p>
+  <table>
+    <tr>
+      <td>KVAROVI</td>
+      <td><a href="/kvarovi/create/">Dodaj Kvar</a></td>
+    </tr>
+  </table> 
+</p>
+<hr>
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <!--- <th scope="col">#</th> -->
+        <th scope="col">ID kvara</th>
+        <th scope="col">Opis kvara</th>
+        <th scope="col">Status</th>
+        <th scope="col">Barcode uređaja</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        
+      </tr>
+
+      {% for kvar in kvarovi %}
+        <tr>
+          <td><a href="/kvarovi/{{ kvar.pk }}/">{{ kvar.id_kvara }}</a></td>
+          <td>{{ kvar.opis_kvara }}</td>
+          <td>{{ kvar.status }}</td>
+          <td>{{ kvar.barcode_uredaja }}</td>
+          <td><a href="/kvarovi/{{ kvar.pk }}/update/">Update</a></td>
+          <td><a href="/kvarovi/{{ kvar.pk }}/delete/">Delete</a></td>
+        </tr>
+      {% endfor %}
+
+      
+  </table>
+
+  {% endblock content %}

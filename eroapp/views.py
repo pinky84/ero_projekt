@@ -214,7 +214,7 @@ def uredaj_update(request, pk):
             return redirect("/uredaji")
     context = {
         'form': form,
-        'korisnik': uredaj
+        'uredaj': uredaj
         }
     return render(request, 'uredaj/uredaj_update.html', context)
 
@@ -225,5 +225,42 @@ def uredaj_delete(request, pk):
 
 #-----------------------------------------------------------------------------------------------
 
+def kvar_list(request):
+    kvarovi = Kvar.objects.all()
+    context = {'kvarovi': kvarovi}
+    return render(request, 'kvar/kvar_list.html', context)
 
+def kvar_detail(request, pk):
+    kvar = Kvar.objects.get(id=pk)
+    context = {'kvar': kvar}
+    return render(request, 'kvar/kvar_detail.html', context)
+
+def kvar_create(request):
+    form = KvarForm()
+    if request.method == "POST":
+        form = KvarForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("/kvarovi")
+    context = {'form': form}
+    return render(request, 'kvar/kvar_create.html', context)
+
+def kvar_update(request, pk):
+    kvar = Kvar.objects.get(id=pk)
+    form = KvarForm(instance=kvar)
+    if request.method == "POST":
+        form = KvarForm(request.POST, instance=kvar)
+        if form.is_valid():
+            form.save()
+            return redirect("/kvarovi")
+    context = {
+        'form': form,
+        'kvar': kvar
+        }
+    return render(request, 'kvar/kvar_update.html', context)
+
+def kvar_delete(request, pk):
+    kvar = Kvar.objects.get(id=pk)
+    kvar.delete()
+    return redirect("/kvarovi")
 

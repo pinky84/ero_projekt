@@ -41,3 +41,8 @@ class UredajForm(forms.ModelForm):
         fields = '__all__'
 
 #--------------------------------------------------------------------------------
+
+class KvarForm(forms.ModelForm):
+    class Meta:
+        model = Kvar
+        fields = '__all__'
