@@ -264,3 +264,9 @@ def kvar_delete(request, pk):
     kvar.delete()
     return redirect("/kvarovi")
 
+"""def confirm_delete(request, pk):
+    kvar = Kvar.objects.get(id=pk)
+    context = {'kvar': kvar}
+    return render(request, 'kvar/kvar_delete.html', context)
+"""
+

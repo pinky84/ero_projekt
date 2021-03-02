@@ -2,14 +2,8 @@
 
 {% block content %}
 <hr>
-<p>
-  <table>
-    <tr>
-      <td>PROSTORIJE</td>
-      <td><a href="/prostorije/create/">Dodaj Prostoriju</a></td>
-    </tr>
-  </table> 
-</p>
+<h1 style="text-align: center;">PROSTORIJE</h1>
+<p style="text-align: center;"><a class="btn btn-bg btn-success" href="/prostorije/create/">Dodaj Prostoriju</a></p>
 <hr>
 <table class="table">
     <thead class="thead-dark">
@@ -30,8 +24,8 @@
           <td>{{ prostorija.kat }}</td>
           <td>{{ prostorija.broj_prostorije }}</td>
           <td>{{ prostorija.id_zgrada }}</td>
-          <td><a href="/prostorije/{{ prostorija.pk }}/update/">Update</a></td>
-          <td><a href="/prostorije/{{ prostorija.pk }}/delete/">Delete</a></td>
+          <td><a class="btn btn-sm btn-primary" href="/prostorije/{{ prostorija.pk }}/update/">Update</a></td>
+          <td><a class="btn btn-sm btn-danger" href="/prostorije/{{ prostorija.pk }}/delete/">Delete</a></td>
         </tr>
       {% endfor %}
 

@@ -39,6 +39,7 @@ urlpatterns = [
     path('kvarovi/<int:pk>/', views.kvar_detail),
     path('kvarovi/create/', views.kvar_create),
     path('kvarovi/<int:pk>/update/', views.kvar_update),
+   # path('kvarovi/<int:pk>/confirm_delete/', views.confirm_delete),
     path('kvarovi/<int:pk>/delete/', views.kvar_delete),
 
     #path('lokacije/', LokacijaListView.as_view(), name='lokacija_list_view'),

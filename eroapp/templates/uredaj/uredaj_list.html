@@ -2,14 +2,9 @@
 
 {% block content %}
 <hr>
-<p>
-  <table>
-    <tr>
-      <td>UREĐAJI</td>
-      <td><a href="/uredaji/create/">Dodaj Uređaj</a></td>
-    </tr>
-  </table> 
-</p>
+<h1 style="text-align: center;">UREĐAJI</h1>
+<p style="text-align: center;"><a class="btn btn-bg btn-success" href="/uredaji/create/">Dodaj Uređaj</a></p>
+
 <hr>
 <table class="table">
     <thead class="thead-dark">
@@ -30,8 +25,8 @@
           <td>{{ uredaj.vrsta_uredaja }}</td>
           <td>{{ uredaj.proizvodac }}</td>
           <td>{{ uredaj.model }}</td>
-          <td><a href="/uredaji/{{ uredaj.pk }}/update/">Update</a></td>
-          <td><a href="/uredaji/{{ uredaj.pk }}/delete/">Delete</a></td>
+          <td><a class="btn btn-sm btn-primary" href="/uredaji/{{ uredaj.pk }}/update/">Update</a></td>
+          <td><a class="btn btn-sm btn-danger" href="/uredaji/{{ uredaj.pk }}/delete/">Delete</a></td>
         </tr>
       {% endfor %}
 

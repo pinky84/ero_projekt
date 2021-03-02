@@ -2,14 +2,9 @@
 
 {% block content %}
 <hr>
-<p>
-  <table>
-    <tr>
-      <td>ZGRADE</td>
-      <td><a href="/zgrade/create/">Dodaj Zgradu</a></td>
-    </tr>
-  </table> 
-</p>
+  <h1 style="text-align: center;">ZGRADE</h1>
+  <p style="text-align: center;"><a class="btn btn-bg btn-success" href="/zgrade/create/">Dodaj Zgradu</a></p>
+
 <hr>
 <table class="table">
     <thead class="thead-dark">
@@ -30,8 +25,8 @@
           <td>{{ zgrada.adresa }}</td>
           <td>{{ zgrada.subnet }}</td>
           <td>{{ zgrada.id_lokacija }}</td>
-          <td><a href="/zgrade/{{ zgrada.pk }}/update/">Update</a></td>
-          <td><a href="/zgrade/{{ zgrada.pk }}/delete/">Delete</a></td>
+          <td><a class="btn btn-sm btn-primary" href="/zgrade/{{ zgrada.pk }}/update/">Update</a></td>
+          <td><a class="btn btn-sm btn-danger" href="/zgrade/{{ zgrada.pk }}/delete/">Delete</a></td>
         </tr>
       {% endfor %}
 

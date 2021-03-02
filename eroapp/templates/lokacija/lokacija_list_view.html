@@ -2,14 +2,8 @@
 
 {% block content %}
 <hr>
-<p>
-  <table>
-    <tr>
-      <td>LOKACIJE</td>
-      <td><a href="/lokacije/create/">Dodaj Lokaciju</a></td>
-    </tr>
-  </table> 
-</p>
+<h1 style="text-align: center;">LOKACIJE</h1>
+<p style="text-align: center;"><a class="btn btn-bg btn-success" href="/lokacije/create/">Dodaj Lokaciju</a></p>
 <hr>
 <table class="table">
     <thead class="thead-dark">
@@ -26,8 +20,8 @@
         <tr>
           <td><a href="/lokacije/{{ lokacija.pk }}/">{{ lokacija.sifra_lokacije }}</a></td>
           <td>{{ lokacija.mjesto }}</td>
-          <td><a href="/lokacije/{{ lokacija.pk }}/update/">Update</a></td>
-          <td><a href="/lokacije/{{ lokacija.pk }}/delete/">Delete</a></td>
+          <td><a class="btn btn-sm btn-primary" href="/lokacije/{{ lokacija.pk }}/update/">Update</a></td>
+          <td><a class="btn btn-sm btn-danger" href="/lokacije/{{ lokacija.pk }}/delete/">Delete</a></td>
         </tr>
       {% endfor %}
 

@@ -2,14 +2,8 @@
 
 {% block content %}
 <hr>
-<p>
-  <table>
-    <tr>
-      <td>KORISNICI</td>
-      <td><a href="/korisnici/create/">Dodaj Korisnika</a></td>
-    </tr>
-  </table> 
-</p>
+<h1 style="text-align: center;">KORISNICI</h1>
+    <p style="text-align: center;"><a class="btn btn-bg btn-success" href="/korisnici/create/">Dodaj Korisnika</a></p>
 <hr>
 <table class="table">
     <thead class="thead-dark">
@@ -28,8 +22,8 @@
           <td><a href="/korisnici/{{ korisnik.pk }}/">{{ korisnik.id_korisnika }}</a></td>
           <td>{{ korisnik.ime }}</td>
           <td>{{ korisnik.prezime }}</td>
-          <td><a href="/korisnici/{{ korisnik.pk }}/update/">Update</a></td>
-          <td><a href="/korisnici/{{ korisnik.pk }}/delete/">Delete</a></td>
+          <td><a class="btn btn-sm btn-primary" href="/korisnici/{{ korisnik.pk }}/update/">Update</a></td>
+          <td><a class="btn btn-sm btn-danger" href="/korisnici/{{ korisnik.pk }}/delete/">Delete</a></td>
         </tr>
       {% endfor %}
 

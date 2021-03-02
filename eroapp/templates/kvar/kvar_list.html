@@ -2,14 +2,8 @@
 
 {% block content %}
 <hr>
-<p>
-  <table>
-    <tr>
-      <td>KVAROVI</td>
-      <td><a href="/kvarovi/create/">Dodaj Kvar</a></td>
-    </tr>
-  </table> 
-</p>
+  <h1 style="text-align: center;">KVAROVI</h1>
+      <p style="text-align: center;"><a class="btn btn-bg btn-success" href="/kvarovi/create/">Dodaj Kvar</a></p>
 <hr>
 <table class="table">
     <thead class="thead-dark">
@@ -30,8 +24,9 @@
           <td>{{ kvar.opis_kvara }}</td>
           <td>{{ kvar.status }}</td>
           <td>{{ kvar.barcode_uredaja }}</td>
-          <td><a href="/kvarovi/{{ kvar.pk }}/update/">Update</a></td>
-          <td><a href="/kvarovi/{{ kvar.pk }}/delete/">Delete</a></td>
+          <td><a class="btn btn-sm btn-primary" href="/kvarovi/{{ kvar.pk }}/update/">Update</a></td>
+          <!--<td><a href="/kvarovi/{{ kvar.pk }}/confirm_delete/">Delete</a></td>-->
+          <td><a class="btn btn-sm btn-danger" href="/kvarovi/{{ kvar.pk }}/delete/">Delete</a></td> 
         </tr>
       {% endfor %}
 
