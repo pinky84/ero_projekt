@@ -3,9 +3,13 @@
 {% block content %}
 <hr>
 <h1 style="text-align: center;">KORISNICI</h1>
-    <p style="text-align: center;"><a class="btn btn-bg btn-success" href="/korisnici/create/">Dodaj Korisnika</a></p>
 <hr>
-<table class="table">
+    <p style="text-align: center;"><a class="btn btn-bg btn-success" href="/korisnici/create/">Dodaj Korisnika</a></p>
+
+<div style="margin-left: 75px; margin-right: 75px;">
+  <div>
+
+<table id="example" class="table table-striped table-sm">
     <thead class="thead-dark">
       <tr>
         <!--- <th scope="col">#</th> -->
@@ -16,6 +20,7 @@
         <th scope="col"></th>
         
       </tr>
+    </thead>
 
       {% for korisnik in korisnici %}
         <tr>
@@ -29,5 +34,7 @@
 
       
   </table>
+  </div>
+  </div>
 
   {% endblock content %}

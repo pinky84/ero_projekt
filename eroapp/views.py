@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.forms import inlineformset_factory
 
 from .models import *
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
 
 from .forms import *
+from .filters import *
 
 # Create your views here.
 
@@ -23,7 +25,13 @@ def uredjaji(request):
 
 def lokacija_list(request):
     lokacije = Lokacija.objects.all()
-    context = {'lokacije': lokacije}
+
+    #lokacije_set = lokacija_list.lokacija_set.all()
+
+    my_filter = LokacijaFilter(request.GET, queryset=lokacije)  #filter
+    lokacije = my_filter.qs
+
+    context = {'lokacije': lokacije, 'my_filter': my_filter}
     return render(request, 'lokacija/lokacija_list_view.html', context)
 
 def lokacija_detail(request, pk):

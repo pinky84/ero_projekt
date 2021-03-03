@@ -3,9 +3,13 @@
 {% block content %}
 <hr>
   <h1 style="text-align: center;">KVAROVI</h1>
+  <hr>
       <p style="text-align: center;"><a class="btn btn-bg btn-success" href="/kvarovi/create/">Dodaj Kvar</a></p>
-<hr>
-<table class="table">
+
+<div style="margin-left: 75px; margin-right: 75px;">
+  <div> 
+
+<table id="example" class="table table-striped table-sm">
     <thead class="thead-dark">
       <tr>
         <!--- <th scope="col">#</th> -->
@@ -17,6 +21,7 @@
         <th scope="col"></th>
         
       </tr>
+    </thead>
 
       {% for kvar in kvarovi %}
         <tr>
@@ -32,5 +37,8 @@
 
       
   </table>
+
+</div>
+</div>
 
   {% endblock content %}

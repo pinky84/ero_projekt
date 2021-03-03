@@ -7,6 +7,11 @@ from .models import *
     mjesto = forms.CharField(label="Mjesto")
 """
 
+class DateInput(forms.DateInput):   # za date widget
+    input_type = 'date'
+
+#---------------------------------------------------------------------------------
+
 class LokacijaForm(forms.ModelForm):
     class Meta:
         model = Lokacija
@@ -39,6 +44,10 @@ class UredajForm(forms.ModelForm):
     class Meta:
         model = Uredaj
         fields = '__all__'
+        widgets = {
+            'datum_nabave': DateInput(),
+            'datum_isteka_garancije': DateInput(),
+        }
 
 #--------------------------------------------------------------------------------
 
