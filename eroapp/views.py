@@ -31,8 +31,8 @@ def login_page(request):
         if user is not None:
             login(request, user)
             return redirect('/uredaji')
-        else:
-            messages.info(request, 'Pogrešno korisnički ime ili lozinka')
+       # else:
+           # messages.info(request, 'Pogrešno korisnički ime ili lozinka')
 
     context = {}
     return render(request, 'login.html', context)
@@ -40,7 +40,7 @@ def login_page(request):
 
 def logout_user(request):
     logout(request)
-    return redirect('')
+    return redirect("/login")
 #---------------------------------------------------------------------------------------
 """
 def uredjaji(request):
@@ -52,7 +52,7 @@ def uredjaji(request):
     queryset        = Lokacija.objects.all()
     context_object_name = 'lokacije'
 """
-@login_required(login_url='/')
+@login_required(login_url='/login')
 def lokacija_list(request):
     lokacije = Lokacija.objects.all()
 
@@ -64,11 +64,13 @@ def lokacija_list(request):
     context = {'lokacije': lokacije, 'my_filter': my_filter}
     return render(request, 'lokacija/lokacija_list_view.html', context)
 
+@login_required(login_url='/login')
 def lokacija_detail(request, pk):
     lokacija = Lokacija.objects.get(id=pk)
     context = {'lokacija': lokacija}
     return render(request, 'lokacija/lokacija_detail.html', context)
 
+@login_required(login_url='/login')
 def lokacija_create(request):
     form = LokacijaForm()
     if request.method == "POST":
@@ -79,6 +81,7 @@ def lokacija_create(request):
     context = {'form': form}
     return render(request, 'lokacija/lokacija_create.html', context)
 
+@login_required(login_url='/login')
 def lokacija_update(request, pk):
     lokacija = Lokacija.objects.get(id=pk)
     form = LokacijaForm(instance=lokacija)
@@ -99,17 +102,19 @@ def lokacija_delete(request, pk):
     return redirect("/lokacije")
 #------------------------------------------------------------------------------------------------
 
-@login_required(login_url='')
+@login_required(login_url='/login')
 def zgrada_list(request):
     zgrade = Zgrada.objects.all()
     context = {'zgrade': zgrade}
     return render(request, 'zgrada/zgrada_list.html', context)
 
+@login_required(login_url='/login')
 def zgrada_detail(request, pk):
     zgrada = Zgrada.objects.get(id=pk)
     context = {'zgrada': zgrada}
     return render(request, 'zgrada/zgrada_detail.html', context)
 
+@login_required(login_url='/login')
 def zgrada_create(request):
     form = ZgradaForm()
     if request.method == "POST":
@@ -120,6 +125,7 @@ def zgrada_create(request):
     context = {'form': form}
     return render(request, 'zgrada/zgrada_create.html', context)
 
+@login_required(login_url='/login')
 def zgrada_update(request, pk):
     zgrada = Zgrada.objects.get(id=pk)
     form = ZgradaForm(instance=zgrada)
@@ -141,16 +147,19 @@ def zgrada_delete(request, pk):
 
 #----------------------------------------------------------------------------------------------
 
+@login_required(login_url='/login')
 def prostorija_list(request):
     prostorije = Prostorija.objects.all()
     context = {'prostorije': prostorije}
     return render(request, 'prostorija/prostorija_list.html', context)
 
+@login_required(login_url='/login')
 def prostorija_detail(request, pk):
     prostorija = Prostorija.objects.get(id=pk)
     context = {'prostorija': prostorija}
     return render(request, 'prostorija/prostorija_detail.html', context)
 
+@login_required(login_url='/login')
 def prostorija_create(request):
     form = ProstorijaForm()
     if request.method == "POST":
@@ -161,6 +170,7 @@ def prostorija_create(request):
     context = {'form': form}
     return render(request, 'prostorija/prostorija_create.html', context)
 
+@login_required(login_url='/login')
 def prostorija_update(request, pk):
     prostorija = Prostorija.objects.get(id=pk)
     form = ProstorijaForm(instance=prostorija)
@@ -182,16 +192,19 @@ def prostorija_delete(request, pk):
 
 #---------------------------------------------------------------------------------------------
 
+@login_required(login_url='/login')
 def korisnik_list(request):
     korisnici = Korisnik.objects.all()
     context = {'korisnici': korisnici}
     return render(request, 'korisnik/korisnik_list.html', context)
 
+@login_required(login_url='/login')
 def korisnik_detail(request, pk):
     korisnik = Korisnik.objects.get(id=pk)
     context = {'korisnik': korisnik}
     return render(request, 'korisnik/korisnik_detail.html', context)
 
+@login_required(login_url='/login')
 def korisnik_create(request):
     form = KorisnikForm()
     if request.method == "POST":
@@ -202,6 +215,7 @@ def korisnik_create(request):
     context = {'form': form}
     return render(request, 'korisnik/korisnik_create.html', context)
 
+@login_required(login_url='/login')
 def korisnik_update(request, pk):
     korisnik = Korisnik.objects.get(id=pk)
     form = KorisnikForm(instance=korisnik)
@@ -223,16 +237,19 @@ def korisnik_delete(request, pk):
 
 #------------------------------------------------------------------------------------------
 
+@login_required(login_url='/login')
 def uredaj_list(request):
     uredaji = Uredaj.objects.all()
     context = {'uredaji': uredaji}
     return render(request, 'uredaj/uredaj_list.html', context)
 
+@login_required(login_url='/login')
 def uredaj_detail(request, pk):
     uredaj = Uredaj.objects.get(id=pk)
     context = {'uredaj': uredaj}
     return render(request, 'uredaj/uredaj_detail.html', context)
 
+@login_required(login_url='/login')
 def uredaj_create(request):
     form = UredajForm()
     if request.method == "POST":
@@ -243,6 +260,7 @@ def uredaj_create(request):
     context = {'form': form}
     return render(request, 'uredaj/uredaj_create.html', context)
 
+@login_required(login_url='/login')
 def uredaj_update(request, pk):
     uredaj = Uredaj.objects.get(id=pk)
     form = UredajForm(instance=uredaj)
@@ -264,16 +282,19 @@ def uredaj_delete(request, pk):
 
 #-----------------------------------------------------------------------------------------------
 
+@login_required(login_url='/login')
 def kvar_list(request):
     kvarovi = Kvar.objects.all()
     context = {'kvarovi': kvarovi}
     return render(request, 'kvar/kvar_list.html', context)
 
+@login_required(login_url='/login')
 def kvar_detail(request, pk):
     kvar = Kvar.objects.get(id=pk)
     context = {'kvar': kvar}
     return render(request, 'kvar/kvar_detail.html', context)
 
+@login_required(login_url='/login')
 def kvar_create(request):
     form = KvarForm()
     if request.method == "POST":
@@ -284,6 +305,7 @@ def kvar_create(request):
     context = {'form': form}
     return render(request, 'kvar/kvar_create.html', context)
 
+@login_required(login_url='/login')
 def kvar_update(request, pk):
     kvar = Kvar.objects.get(id=pk)
     form = KvarForm(instance=kvar)
