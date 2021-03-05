@@ -1,8 +1,12 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.forms import inlineformset_factory
+from django.contrib.auth import authenticate, login, logout
 
 from .models import *
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
 
 from .forms import *
@@ -12,6 +16,32 @@ from .filters import *
 
 def home(request):
     return render(request, 'home.html')
+
+def skocni(request):
+    return render(request, 'skocni.html')
+#--------------------------------------------------------------------------------------------
+def login_page(request):
+
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('/uredaji')
+        else:
+            messages.info(request, 'Pogrešno korisnički ime ili lozinka')
+
+    context = {}
+    return render(request, 'login.html', context)
+#--------------------------------------------------------------------------------------------
+
+def logout_user(request):
+    logout(request)
+    return redirect('')
+#---------------------------------------------------------------------------------------
 """
 def uredjaji(request):
     return render(request, 'uredjaji.html')
@@ -22,7 +52,7 @@ def uredjaji(request):
     queryset        = Lokacija.objects.all()
     context_object_name = 'lokacije'
 """
-
+@login_required(login_url='/')
 def lokacija_list(request):
     lokacije = Lokacija.objects.all()
 
@@ -69,6 +99,7 @@ def lokacija_delete(request, pk):
     return redirect("/lokacije")
 #------------------------------------------------------------------------------------------------
 
+@login_required(login_url='')
 def zgrada_list(request):
     zgrade = Zgrada.objects.all()
     context = {'zgrade': zgrade}

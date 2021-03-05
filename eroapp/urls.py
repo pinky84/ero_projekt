@@ -4,7 +4,11 @@ from .views import *
 
 
 urlpatterns = [
-    path('home/', views.home),
+   # path('home/', views.home),
+    path('skocni/', views.skocni),
+    path('', views.login_page),
+    path('logout/', views.login_page),
+#-----------------------------------------------------------------------------
     path('lokacije/', views.lokacija_list),
     path('lokacije/<int:pk>/', views.lokacija_detail),
     path('lokacije/<int:pk>/update/', views.lokacija_update),
