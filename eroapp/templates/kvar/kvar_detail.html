@@ -3,9 +3,37 @@
 {% block content %}
 
     <p></p>
-    <p><strong>ID kvara: {{ kvar.id_kvara }}</strong></p>
-    <p><strong>Opis kvara: {{ kvar.opis_kvara }}</strong></p>
-    <p><strong>Status: {{ kvar.status }}</strong></p>
-    <p><strong>Barcode uređaja: {{ kvar.barcode_uredaja }}</strong></p>
+    <hr>
+    <h1 style="text-align: center;">DETALJI KVARA</h1>
+    <p></p>
+    <hr>
+    <p></p>
+    <div class="form-group" style="width: 800px; margin: auto; border-style: solid; padding: 20px; padding-bottom: 30px; background-color: rgb(234, 239, 241);">
+        <table style="border: 0,5px; border-style: solid; background-color: rgb(253, 249, 243); width: 100%;">
+            <tr>
+                <th scope="row" style="border: 0,5px; border-style: solid; width: 140px; height: 60px;">ID kvara</th>
+                <td style="border: 0,5px; border-style: solid; padding-left: 20px;">{{ kvar.id_kvara }}</td>
+            </tr>
+            <tr>
+                <th scope="row" id=detail style="height: 60px;">Opis kvara</th>
+                <td id=detail style="padding-left: 20px;">{{ kvar.opis_kvara }}</td>
+            </tr>
+            <tr>
+                <th scope="row" id=detail style="height: 60px;">Status</th>
+                <td id=detail style="padding-left: 20px;">{{ kvar.status }}</td>
+            </tr>
+            <tr>
+                <th scope="row" id=detail style="height: 60px;">Barcode uređaja</th>
+                <td id=detail style="padding-left: 20px;">{{ kvar.barcode_uredaja }}</td>
+            </tr>
+       <!-- <p><strong>ID kvara: {{ kvar.id_kvara }}</strong></p>
+        <p><strong>Opis kvara: {{ kvar.opis_kvara }}</strong></p>
+        <p><strong>Status: {{ kvar.status }}</strong></p>
+        <p><strong>Barcode uređaja: {{ kvar.barcode_uredaja }}</strong></p>-->
+    </table>
+    <div style="text-align: center;"><br>
+        <a class="btn btn-lg btn-primary" href="/kvarovi/">Povratak</a>
+        </div>
+    </div>
 
  {% endblock content %}

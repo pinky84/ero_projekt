@@ -4,15 +4,22 @@
 
     <p></p>
     <hr>
-    <h1>Kreirajte novi kvar</h1>
+    <h1 style="text-align: center;">KREIRAJTE NOVI KVAR</h1>
     <p></p>
     <hr>
     <p></p>
-    <form method="POST"> 
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Submit</button>
-    </form>
+    
+        <div class="form-group" style="width: 800px; margin: auto; border-style: solid; padding: 50px; padding-bottom: 30px; background-color: rgb(234, 239, 241);">
+            <form method="POST"> 
+                {% csrf_token %}
+                {{ form.as_p }}
+                <br>
+                <div style="text-align: center;">
+                <button type="submit" class="btn btn-lg btn-success">Kreiraj</button>
+                <a class="btn btn-lg btn-primary" href="/kvarovi/">Odustani</a>
+                </div>
+            </form>
+        </div>
     
 
  {% endblock content %}

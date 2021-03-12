@@ -3,10 +3,36 @@
 {% block content %}
 
     <p></p>
-    <p><strong>Šifra prostorije: {{ prostorija.sifra_prostorije }}</strong></p>
-    <p><strong>Kat: {{ prostorija.kat }}</strong></p>
-    <p><strong>Broj prostorije: {{ prostorija.broj_prostorije }}</strong></p>
-    <p><strong>ID zgrade: {{ prostorija.id_zgrada }}</strong></p>
+    <hr>
+    <h1 style="text-align: center;">DETALJI PROSTORIJE</h1>
+    <p></p>
+    <hr>
+    <p></p>
+
+    <div class="form-group" style="width: 800px; margin: auto; border-style: solid; padding: 20px; padding-bottom: 30px; background-color: rgb(234, 239, 241);">
+        <table style="border: 0,5px; border-style: solid; background-color: rgb(253, 249, 243); width: 100%;">
+            <tr>
+                <th scope="row" style="border: 0,5px; border-style: solid; width: 140px; height: 60px;">Šifra prostorije</th>
+                <td style="border: 0,5px; border-style: solid; padding-left: 20px;">{{ prostorija.sifra_prostorije }}</td>
+            </tr>
+            <tr>
+                <th scope="row" id=detail style="height: 60px;">Kat</th>
+                <td id=detail style="padding-left: 20px;">{{ prostorija.kat }}</td>
+            </tr>
+            <tr>
+                <th scope="row" id=detail style="height: 60px;">Broj prostorije</th>
+                <td id=detail style="padding-left: 20px;">{{ prostorija.broj_prostorije }}</td>
+            </tr>
+            <tr>
+                <th scope="row" id=detail style="height: 60px;">ID zgrade</th>
+                <td id=detail style="padding-left: 20px;">{{ prostorija.id_zgrada }}</td>
+            </tr>
+
+    </table>
+    <div style="text-align: center;"><br>
+        <a class="btn btn-lg btn-primary" href="/prostorije/">Povratak</a>
+        </div>
+    </div>
     
 
  {% endblock content %}

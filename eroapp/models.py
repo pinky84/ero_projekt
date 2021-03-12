@@ -7,6 +7,7 @@ class Lokacija(models.Model):
 
     def __str__(self):
         return (self.sifra_lokacije)
+        #return '{} {}'.format(self.sifra_lokacije, self.mjesto)
 
     class Meta:
         verbose_name_plural = 'Lokacije'

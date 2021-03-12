@@ -3,9 +3,35 @@
 {% block content %}
 
     <p></p>
-    <p><strong>Šifra zgrade: {{ zgrada.sifra_zgrade }}</strong></p>
-    <p><strong>Adresa: {{ zgrada.adresa }}</strong></p>
-    <p><strong>Subnet: {{ zgrada.subnet }}</strong></p>
-    <p><strong>ID lokacije: {{ zgrada.id_lokacija }}</strong></p>
+    <hr>
+    <h1 style="text-align: center;">DETALJI ZGRADE</h1>
+    <p></p>
+    <hr>
+    <p></p>
+
+    <div class="form-group" style="width: 800px; margin: auto; border-style: solid; padding: 20px; padding-bottom: 30px; background-color: rgb(234, 239, 241);">
+        <table style="border: 0,5px; border-style: solid; background-color: rgb(253, 249, 243); width: 100%;">
+            <tr>
+                <th scope="row" style="border: 0,5px; border-style: solid; width: 140px; height: 60px;">Šifra zgrade</th>
+                <td style="border: 0,5px; border-style: solid; padding-left: 20px;">{{ zgrada.sifra_zgrade }}</td>
+            </tr>
+            <tr>
+                <th scope="row" id=detail style="height: 60px;">Adresa</th>
+                <td id=detail style="padding-left: 20px;">{{ zgrada.adresa }}</td>
+            </tr>
+            <tr>
+                <th scope="row" id=detail style="height: 60px;">Subnet</th>
+                <td id=detail style="padding-left: 20px;">{{ zgrada.subnet }}</td>
+            </tr>
+            <tr>
+                <th scope="row" id=detail style="height: 60px;">ID lokacije</th>
+                <td id=detail style="padding-left: 20px;">{{ zgrada.id_lokacija }}</td>
+            </tr>
+
+    </table>
+    <div style="text-align: center;"><br>
+        <a class="btn btn-lg btn-primary" href="/zgrade/">Povratak</a>
+        </div>
+    </div>
 
  {% endblock content %}

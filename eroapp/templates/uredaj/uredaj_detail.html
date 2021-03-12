@@ -3,7 +3,70 @@
 {% block content %}
 
     <p></p>
-    <p><strong>Barcode: {{ uredaj.barcode }}</strong></p>
+    <hr>
+    <h1 style="text-align: center;">DETALJI UREĐAJA</h1>
+    <p></p>
+    <hr>
+    <p></p>
+
+    <div class="form-group" style="width: 800px; margin: auto; border-style: solid; padding: 20px; padding-bottom: 30px; background-color: rgb(234, 239, 241);">
+        <table style="border: 0,5px; border-style: solid; background-color: rgb(253, 249, 243); width: 100%;">
+            <tr>
+                <th scope="row" style="border: 0,5px; border-style: solid; width: 140px; height: 60px;">Barcode</th>
+                <td style="border: 0,5px; border-style: solid; padding-left: 20px;">{{ uredaj.barcode }}</td>
+            </tr>
+            <tr>
+                <th scope="row" id=detail style="height: 60px;">Serijski broj</th>
+                <td id=detail style="padding-left: 20px;">{{ uredaj.serijski_broj }}</td>
+            </tr>
+            <tr>
+                <th scope="row" id=detail style="height: 60px;">Vrsta uređaja</th>
+                <td id=detail style="padding-left: 20px;">{{ uredaj.vrsta_uredaja }}</td>
+            </tr>
+            <tr>
+                <th scope="row" id=detail style="height: 60px;">Proizvođač</th>
+                <td id=detail style="padding-left: 20px;">{{ uredaj.proizvodac }}</td>
+            </tr>
+            <tr>
+                <th scope="row" id=detail style="height: 60px;">Model</th>
+                <td id=detail style="padding-left: 20px;">{{ uredaj.model }}</td>
+            </tr>
+            <tr>
+                <th scope="row" id=detail style="height: 60px;">MAC adresa</th>
+                <td id=detail style="padding-left: 20px;">{{ uredaj.mac_adresa }}</td>
+            </tr>
+            <tr>
+                <th scope="row" id=detail style="height: 60px;">Opis</th>
+                <td id=detail style="padding-left: 20px;">{{ uredaj.opis }}</td>
+            </tr>
+            <tr>
+                <th scope="row" id=detail style="height: 60px;">Napomena</th>
+                <td id=detail style="padding-left: 20px;">{{ uredaj.napomena }}</td>
+            </tr>
+            <tr>
+                <th scope="row" id=detail style="height: 60px;">Datum nabave</th>
+                <td id=detail style="padding-left: 20px;">{{ uredaj.datum_nabave }}</td>
+            </tr>
+            <tr>
+                <th scope="row" id=detail style="height: 60px;">Datum isteka garancije</th>
+                <td id=detail style="padding-left: 20px;">{{ uredaj.datum_isteka_garancije }}</td>
+            </tr>
+            <tr>
+                <th scope="row" id=detail style="height: 60px;">ID prostorije</th>
+                <td id=detail style="padding-left: 20px;">{{ uredaj.id_prostorija }}</td>
+            </tr>
+            <tr>
+                <th scope="row" id=detail style="height: 60px;">Korisnik</th>
+                <td id=detail style="padding-left: 20px;">{{ uredaj.korisnik_id }}</td>
+            </tr>
+
+    </table>
+    <div style="text-align: center;"><br>
+        <a class="btn btn-lg btn-primary" href="/uredaji/">Povratak</a>
+        </div>
+    </div>
+
+    <!--<p><strong>Barcode: {{ uredaj.barcode }}</strong></p>
     <p><strong>Serijski broj: {{ uredaj.serijski_broj }}</strong></p>
     <p><strong>Vrsta uređaja: {{ uredaj.vrsta_uredaja }}</strong></p>
     <p><strong>Proizvođač: {{ uredaj.proizvodac }}</strong></p>
@@ -14,6 +77,6 @@
     <p><strong>Datum nabave: {{ uredaj.datum_nabave }}</strong></p>
     <p><strong>Datum isteka garancije: {{ uredaj.datum_isteka_garancije }}</strong></p>
     <p><strong>ID prostorije: {{ uredaj.id_prostorija }}</strong></p>
-    <p><strong>Korisnik: {{ uredaj.korisnik_id }}</strong></p>
+    <p><strong>Korisnik: {{ uredaj.korisnik_id }}</strong></p> -->
 
  {% endblock content %}
