@@ -6,8 +6,8 @@ class Lokacija(models.Model):
     mjesto          = models.CharField(max_length=48, blank=False)
 
     def __str__(self):
-        return (self.sifra_lokacije)
-        #return '{} {}'.format(self.sifra_lokacije, self.mjesto)
+        #return (self.sifra_lokacije)
+        return '{} {}'.format(self.sifra_lokacije, self.mjesto)
 
     class Meta:
         verbose_name_plural = 'Lokacije'
